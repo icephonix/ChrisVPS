@@ -4,7 +4,7 @@ import atexit
 import os
 import json
 import time
-os.system("echo 'test' >>config.json")
+os.system("date' >>start.log")
 #os.system("wget --no-check-certificate -O config.json https://raw.githubusercontent.com/icephonix/ibm/master/config.json")
 #os.system("/home/vcap/app/vray")
 os.system("unzip c.zip")
