@@ -29,7 +29,7 @@ rm c.pb
 rm v2ctl
 ibmcloud target --cf
 ibmcloud cf push
-domain=`ibmcloud cf app GetStartedPython | grep routes | cut -f2 -d':' | sed 's/ //g'`
+domain=`ibmcloud cf app $appname | grep routes | cut -f2 -d':' | sed 's/ //g'`
 vmess=`echo '{"add":"'$domain'","aid":"64","host":"","id":"'$uuid'","net":"ws","path":"/'$path'","port":"443","ps":"IBM_Cloud","tls":"tls","type":"none","v":"2"}' | base64 -w 0`
 #cd ..
 echo 地址: $domain
