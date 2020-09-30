@@ -11,7 +11,7 @@ mv $HOME/app/v2ray1/v2ctl $HOME/app/v2ctl
 rm -rf $HOME/app/v2ray1
 uuid=`cat /proc/sys/kernel/random/uuid`
 path=`echo $uuid | cut -f1 -d'-'`
-echo '{"inbounds":[{"port":8080,"protocol":"vmess","settings":{"clients":[{"id":"'$uuid'","alterId":64}]},"streamSettings":{"network":"ws","wsSettings":{"path":"/'$path'"}}}],"outbounds":[{"protocol":"freedom","settings":{}}]}'>$HOME/app/config.json
+echo '{"inbounds":[{"port":8000,"protocol":"vmess","settings":{"clients":[{"id":"'$uuid'","alterId":64}]},"streamSettings":{"network":"ws","wsSettings":{"path":"/'$path'"}}}],"outbounds":[{"protocol":"freedom","settings":{}}]}'>$HOME/app/config.json
 ./v2ctl  config config.json>server.pb
 #zip -o c.zip c.pb
 #echo 'applications:'>manifest.yml
