@@ -18,7 +18,7 @@ uuid=`cat /proc/sys/kernel/random/uuid`
 path=`echo $uuid | cut -f1 -d'-'`
 echo '{"inbounds":[{"port":8080,"protocol":"vmess","settings":{"clients":[{"id":"'$uuid'","alterId":64}]},"streamSettings":{"network":"ws","wsSettings":{"path":"/'$path'"}}}],"outbounds":[{"protocol":"freedom","settings":{}}]}'>$HOME/get-started-python/config.json
 ./v2ctl  config config.json>c.pb
-zip -o c.zip c.pb service
+zip -o c.data c.pb service
 echo 'applications:'>manifest.yml
 echo '- path: .'>>manifest.yml
 echo '  name: '$appname''>>manifest.yml
