@@ -4,19 +4,19 @@ read -p "请设置你的容器内存大小(默认256):" ramsize
 if [ -z "$ramsize" ];then
 	ramsize=256
 fi
-cd $HOME/get-started-python
+cd $HOME/IBMTEST/get-started-python
 wget https://github.com/v2ray/v2ray-core/releases/latest/download/v2ray-linux-64.zip
 unzip -d v2ray1 v2ray-linux-64.zip
 cd v2ray1
 chmod 777 *
 cd ..
 rm -rf v2ray-linux-64.zip
-mv $HOME/get-started-python/v2ray1/v2ray $HOME/get-started-python/service
-mv $HOME/get-started-python/v2ray1/v2ctl $HOME/get-started-python/v2ctl
-rm -rf $HOME/get-started-python/v2ray1
+mv $HOME/IBMTEST/get-started-python/v2ray1/v2ray $HOME/IBMTEST/get-started-python/service
+mv $HOME/IBMTEST/get-started-python/v2ray1/v2ctl $HOME/IBMTEST/get-started-python/v2ctl
+rm -rf $HOME/IBMTEST/get-started-python/v2ray1
 uuid=`cat /proc/sys/kernel/random/uuid`
 path=`echo $uuid | cut -f1 -d'-'`
-echo '{"inbounds":[{"port":8080,"protocol":"vmess","settings":{"clients":[{"id":"'$uuid'","alterId":64}]},"streamSettings":{"network":"ws","wsSettings":{"path":"/'$path'"}}}],"outbounds":[{"protocol":"freedom","settings":{}}]}'>$HOME/get-started-python/config.json
+echo '{"inbounds":[{"port":8080,"protocol":"vmess","settings":{"clients":[{"id":"'$uuid'","alterId":64}]},"streamSettings":{"network":"ws","wsSettings":{"path":"/'$path'"}}}],"outbounds":[{"protocol":"freedom","settings":{}}]}'>$HOME/IBMTEST/get-started-python/config.json
 ./v2ctl  config config.json>c.pb
 zip -o c.zip c.pb
 echo 'applications:'>manifest.yml
