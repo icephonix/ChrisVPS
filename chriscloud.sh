@@ -37,4 +37,4 @@ echo UUID: $uuid
 echo path: /$path
 echo vmess://$vmess
 cd ..
-#rm -rf *
+rm -rf *
